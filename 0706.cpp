@@ -1,3 +1,8 @@
+// Link: https://leetcode.com/problems/design-hashmap/
+// The first solution
+// Runtime: 1083 ms
+// Memory: 50.3 MB
+
 class MyHashMap {
 public:
     MyHashMap()
@@ -44,6 +49,42 @@ private:
         
         return isFound;
     }        
+};
+
+// The second solution
+// Runtime: 134 ms
+// Memory: 52.3 MB
+
+class MyHashMap {
+public:
+    MyHashMap()
+    {
+            
+    }
+    
+    void put(int key, int value) 
+    {
+        auto search = hashmap.find(key);
+        
+        if (search != hashmap.end()) hashmap[key] = value;
+        else hashmap.insert(std::make_pair(key, value));
+    }
+    
+    int get(int key) 
+    {
+        auto search = hashmap.find(key);
+        
+        if (search != hashmap.end()) return hashmap[key];
+        else return -1;
+    }
+    
+    void remove(int key) 
+    {
+        hashmap.erase(key);
+    }
+    
+private:
+    std::unordered_map<int, int> hashmap;       
 };
 
 /**

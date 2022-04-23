@@ -1,3 +1,7 @@
+// Link: https://leetcode.com/problems/design-hashset/
+// Runtime: 260 ms 
+// Memory: 39.4 MB
+
 class MyHashSet 
 {
 public:
