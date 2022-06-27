@@ -1,4 +1,4 @@
-// Link: https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/
+// Link: https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/
 // Runtime: 29 ms
 // Memory: 13.5 MB
 

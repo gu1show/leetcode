@@ -5,7 +5,7 @@
 class Solution 
 {
 public:
-    int maxScore(std::vector<int>& cardPoints, int k) 
+    int maxScore(const std::vector<int>& cardPoints, int k) 
     {
         int leftSum = 0;
         for (int i = 0; i < k; i++) leftSum += cardPoints[i];
