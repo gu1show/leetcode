@@ -42,7 +42,8 @@ public:
 // Runtime: 0 ms
 // Memory: 5.9 MB
 
-class Solution {
+class Solution
+{
 public:
     int fib(int n) 
     {
