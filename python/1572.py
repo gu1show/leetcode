@@ -1,6 +1,6 @@
-## Link: https://leetcode.com/problems/matrix-diagonal-sum/description/
-## Runtime: 118 ms
-## Memory: 16.6 MB
+# Link: https://leetcode.com/problems/matrix-diagonal-sum/description/
+# Runtime: 118 ms
+# Memory: 16.6 MB
 
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
