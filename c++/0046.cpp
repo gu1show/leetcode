@@ -8,6 +8,7 @@ public:
     std::vector<vector<int>> permute(const std::vector<int>& nums) 
     {
         addPermutations(nums, {});
+        
         return permutations;
     }
 
