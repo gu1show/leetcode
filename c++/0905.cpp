@@ -41,3 +41,27 @@ public:
         return nums;
     }
 };
+
+// The third solution
+// Runtime: 3 ms
+// Memory: 16.56 MB
+
+class Solution 
+{
+public:
+    std::vector<int> sortArrayByParity(const std::vector<int>& nums) 
+    {
+        std::vector<int> sortedNums = nums;
+        int left = 0;
+        for (int right = 0; right < static_cast<int>(nums.size()); right++)
+        {
+            if (sortedNums[right] % 2 == 0) 
+            {
+                std::swap(sortedNums[left], sortedNums[right]);
+                left++;
+            }
+        }
+
+        return sortedNums;
+    }
+};
