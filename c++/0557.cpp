@@ -1,6 +1,6 @@
 // Link: https://leetcode.com/problems/reverse-words-in-a-string-iii/
-// Runtime: 7 ms
-// Memory: 9.7 MB
+// Runtime: 14 ms
+// Memory: 10.1 MB
 
 class Solution {
 public:
@@ -15,8 +15,8 @@ public:
             while ((j < reversedWords.size()) && (reversedWords[j] != ' ')) j++;
             for (int k = i; k < i + (j - i) / 2; k++)
                 std::swap(reversedWords[k], reversedWords[j - k + i - 1]);
-            j++;
-            i = j;
+
+            i = j + 1;
         }
         
         return reversedWords;
