@@ -1,4 +1,5 @@
-// Link: https://leetcode.com/problems/longest-increasing-subsequence/
+// Link: https://leetcode.com/problems/longest-increasing-subsequence/description/
+// The first solution
 // Runtime: 8 ms 
 // Memory: 10.4 MB
 
@@ -31,5 +32,24 @@ private:
         }
         
         return i;
+    }
+};
+
+// The second solution
+// Runtime: 262 ms 
+// Memory: 10.94 MB
+
+class Solution 
+{
+public:
+    int lengthOfLIS(const std::vector<int>& nums) 
+    {
+        std::vector<int> lengthOfLIS(nums.size(), 1);
+        for (int i = static_cast<int>(nums.size() - 1); i > -1; i--)
+            for (int j = i + 1; j < static_cast<int>(nums.size()); j++)
+                if (nums[i] < nums[j])
+                    lengthOfLIS[i] = std::max(lengthOfLIS[i], lengthOfLIS[j] + 1);
+
+        return *std::max_element(lengthOfLIS.begin(), lengthOfLIS.end());
     }
 };
