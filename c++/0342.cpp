@@ -1,13 +1,12 @@
 // Link: https://leetcode.com/problems/power-of-four/
-// Runtime: 4 ms 
-// Memory: 6 MB
+// Runtime: 0 ms 
+// Memory: 8 MB
 
-class Solution 
-{
+class Solution {
 public:
     bool isPowerOfFour(int n) 
     {
-        if (n == 0) return false;
-        else return std::floor(std::log2(n) / 2.0) == std::log2(n) / 2.0;
+        return (n > 0) && 
+            (std::fabs(std::log10(n) / std::log10(4) - static_cast<int>(std::log10(n) / std::log10(4))) < std::numeric_limits<double>::epsilon());
     }
 };
