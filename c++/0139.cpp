@@ -2,30 +2,27 @@
 // Runtime: 15 ms
 // Memory: 13 MB
 
-class Solution 
-{
+class Solution {
 public:
-    bool wordBreak(const std::string& s, const std::vector<std::string>& wordDict) 
-    {
-        std::vector<bool> ending(s.size() + 1);
-        ending[0] = true;
+  bool wordBreak(const std::string &s,
+                 const std::vector<std::string> &wordDict) {
+    std::vector<bool> ending(s.size() + 1);
+    ending[0] = true;
 
-        for (int i = 1; i < static_cast<int>(s.size() + 1); i++)
-        {
-            int j = 0;
-            bool isFound = false;
-            while ((j < i) && (!isFound))
-            {
-                if ((ending[j]) && (std::find(wordDict.begin(), wordDict.end(), s.substr(j, i - j)) != wordDict.end()))
-                {
-                    ending[i] = true;
-                    isFound = true;
-                }
-
-                j++;
-            }
+    for (int i = 1; i < static_cast<int>(s.size() + 1); i++) {
+      int j = 0;
+      bool isFound = false;
+      while ((j < i) && (!isFound)) {
+        if ((ending[j]) && (std::find(wordDict.begin(), wordDict.end(),
+                                      s.substr(j, i - j)) != wordDict.end())) {
+          ending[i] = true;
+          isFound = true;
         }
 
-        return ending[s.size()];
+        j++;
+      }
     }
+
+    return ending[s.size()];
+  }
 };

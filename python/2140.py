@@ -2,6 +2,7 @@
 # Runtime: 1674 ms
 # Memory: 62.4 MB
 
+
 class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
         numberOfQuestions = len(questions)
@@ -11,5 +12,5 @@ class Solution:
 
             nextPosition = min(numberOfQuestions, i + brainpower + 1)
             ways[i] = max(ways[i + 1], point + ways[nextPosition])
-        
+
         return ways[0]

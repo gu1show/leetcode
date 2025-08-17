@@ -2,6 +2,7 @@
 # Runtime: 48 ms
 # Memory: 32.34 MB
 
+
 class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
         left_sum, right_sum = 0, sum(nums)
@@ -13,5 +14,5 @@ class Solution:
 
             if left_sum >= right_sum:
                 number_of_ways_to_split_array += 1
-        
+
         return number_of_ways_to_split_array

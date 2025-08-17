@@ -9,11 +9,11 @@
 #         self.next = next
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head == None or head.next == None:
+        if head is None or head.next is None:
             return head
-        
+
         node = head.next
         head.next = self.swapPairs(head.next.next)
-        node.next=head 
-        
-        return node 
+        node.next = head
+
+        return node

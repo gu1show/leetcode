@@ -13,9 +13,9 @@ import queue
 
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        if root == None:
+        if root is None:
             return 0
-        
+
         nodes_and_depth = queue.Queue()
         nodes_and_depth.put((root, 1))
         is_found = False
@@ -23,13 +23,13 @@ class Solution:
         while (not nodes_and_depth.empty()) and (not is_found):
             node, depth = nodes_and_depth.get()
 
-            if node.left != None:
+            if node.left is not None:
                 nodes_and_depth.put((node.left, depth + 1))
-            if node.right != None:
+            if node.right is not None:
                 nodes_and_depth.put((node.right, depth + 1))
-            
-            if node.left == None and node.right == None:
+
+            if node.left is None and node.right is None:
                 minimum_depth = depth
                 is_found = True
-        
+
         return minimum_depth

@@ -19,7 +19,7 @@ class Solution:
             prefix_sum += current_node.val
             prefix_sum_and_node.update({prefix_sum: current_node})
             current_node = current_node.next
-        
+
         prefix_sum = 0
         current_node = dummy_node
         while current_node:

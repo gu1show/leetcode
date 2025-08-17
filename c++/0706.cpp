@@ -5,50 +5,48 @@
 
 class MyHashMap {
 public:
-    MyHashMap()
-    {
-            
-    }
-    
-    void put(int key, int value) 
-    {
-        int i = 0;
-        bool isFound = false;
-        
-        if (canFind(i, isFound, key)) hashmap[i - 1].second = value;
-        else hashmap.push_back(std::make_pair(key, value));
-    }
-    
-    int get(int key) 
-    {
-        int i = 0;
-        bool isFound = false;
-        
-        if (canFind(i, isFound, key)) return hashmap[i - 1].second;
-        else return -1;
-    }
-    
-    void remove(int key) 
-    {
-        int i = 0;
-        bool isFound = false;
+  MyHashMap() {}
 
-        if (canFind(i, isFound, key)) hashmap.erase(hashmap.begin() + i - 1);
-    }
-    
+  void put(int key, int value) {
+    int i = 0;
+    bool isFound = false;
+
+    if (canFind(i, isFound, key))
+      hashmap[i - 1].second = value;
+    else
+      hashmap.push_back(std::make_pair(key, value));
+  }
+
+  int get(int key) {
+    int i = 0;
+    bool isFound = false;
+
+    if (canFind(i, isFound, key))
+      return hashmap[i - 1].second;
+    else
+      return -1;
+  }
+
+  void remove(int key) {
+    int i = 0;
+    bool isFound = false;
+
+    if (canFind(i, isFound, key))
+      hashmap.erase(hashmap.begin() + i - 1);
+  }
+
 private:
-    std::vector<std::pair<int, int>> hashmap;
-    
-    bool canFind(int& i, bool& isFound, int key)
-    {
-        while ((i < hashmap.size()) && (!isFound))
-        {
-            if (hashmap[i].first == key) isFound = true;
-            i++;
-        }
-        
-        return isFound;
-    }        
+  std::vector<std::pair<int, int>> hashmap;
+
+  bool canFind(int &i, bool &isFound, int key) {
+    while ((i < hashmap.size()) && (!isFound)) {
+      if (hashmap[i].first == key)
+        isFound = true;
+      i++;
+    }
+
+    return isFound;
+  }
 };
 
 // The second solution
@@ -57,34 +55,30 @@ private:
 
 class MyHashMap {
 public:
-    MyHashMap()
-    {
-            
-    }
-    
-    void put(int key, int value) 
-    {
-        auto search = hashmap.find(key);
-        
-        if (search != hashmap.end()) hashmap[key] = value;
-        else hashmap.insert(std::make_pair(key, value));
-    }
-    
-    int get(int key) 
-    {
-        auto search = hashmap.find(key);
-        
-        if (search != hashmap.end()) return hashmap[key];
-        else return -1;
-    }
-    
-    void remove(int key) 
-    {
-        hashmap.erase(key);
-    }
-    
+  MyHashMap() {}
+
+  void put(int key, int value) {
+    auto search = hashmap.find(key);
+
+    if (search != hashmap.end())
+      hashmap[key] = value;
+    else
+      hashmap.insert(std::make_pair(key, value));
+  }
+
+  int get(int key) {
+    auto search = hashmap.find(key);
+
+    if (search != hashmap.end())
+      return hashmap[key];
+    else
+      return -1;
+  }
+
+  void remove(int key) { hashmap.erase(key); }
+
 private:
-    std::unordered_map<int, int> hashmap;       
+  std::unordered_map<int, int> hashmap;
 };
 
 /**

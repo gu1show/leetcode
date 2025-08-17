@@ -2,8 +2,8 @@
 # Runtime: 97 ms
 # Memory: 20.4 MB
 
-class KthLargest:
 
+class KthLargest:
     def __init__(self, k: int, nums: List[int]):
         self.number_of_element = k
         self.sorted_values = []
@@ -15,7 +15,7 @@ class KthLargest:
             heapq.heappush(self.sorted_values, val)
         elif val > self.sorted_values[0]:
             heapq.heapreplace(self.sorted_values, val)
-        
+
         return self.sorted_values[0]
 
 

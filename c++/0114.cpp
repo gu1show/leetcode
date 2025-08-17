@@ -10,38 +10,35 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    void flatten(TreeNode* root) 
-    {
-        if (root != nullptr)
-        {
-            TreeNode* nextRightNode = nullptr;
-            TreeNode* rightNodeMost = nullptr;
-            
-            while (root != nullptr)
-            {
-                if (root->left != nullptr)
-                {
-                    rightNodeMost = getMostRightNode(root->left);
-                    nextRightNode = root->right;
-                    root->right = root->left;
-                    root->left = nullptr;
-                    rightNodeMost->right = nextRightNode;
-                }  
-                root = root->right;
-            }
+  void flatten(TreeNode *root) {
+    if (root != nullptr) {
+      TreeNode *nextRightNode = nullptr;
+      TreeNode *rightNodeMost = nullptr;
+
+      while (root != nullptr) {
+        if (root->left != nullptr) {
+          rightNodeMost = getMostRightNode(root->left);
+          nextRightNode = root->right;
+          root->right = root->left;
+          root->left = nullptr;
+          rightNodeMost->right = nextRightNode;
         }
+        root = root->right;
+      }
     }
+  }
 
 private:
-    TreeNode* getMostRightNode(TreeNode* node)
-    {
-        if (node->right == nullptr) return node;
-        else return getMostRightNode(node->right);
-    }
+  TreeNode *getMostRightNode(TreeNode *node) {
+    if (node->right == nullptr)
+      return node;
+    else
+      return getMostRightNode(node->right);
+  }
 };

@@ -10,33 +10,29 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    int goodNodes(TreeNode* root) 
-    {
-        dfs(root, root->val);
-        return numberOfGoodNodes;
-    }
-    
+  int goodNodes(TreeNode *root) {
+    dfs(root, root->val);
+    return numberOfGoodNodes;
+  }
+
 private:
-    int numberOfGoodNodes = 0;
-    
-    void dfs(TreeNode* root, int maxValue)
-    {
-        if (root != nullptr)
-        {
-            if (root->val >= maxValue)
-            {
-                numberOfGoodNodes++;
-                maxValue = root->val;
-            }
-            
-            dfs(root->left, maxValue);
-            dfs(root->right, maxValue);
-        }    
+  int numberOfGoodNodes = 0;
+
+  void dfs(TreeNode *root, int maxValue) {
+    if (root != nullptr) {
+      if (root->val >= maxValue) {
+        numberOfGoodNodes++;
+        maxValue = root->val;
+      }
+
+      dfs(root->left, maxValue);
+      dfs(root->right, maxValue);
     }
+  }
 };

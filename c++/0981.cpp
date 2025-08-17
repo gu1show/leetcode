@@ -2,32 +2,27 @@
 // Runtime: 728 ms
 // Memory: 130.8 MB
 
-class TimeMap
-{
+class TimeMap {
 public:
-    TimeMap()
-    {
-        
-    }
-    
-    void set(const std::string& key, const std::string& value, int timestamp) 
-    {
-        timeMap[key][timestamp] = value; 
-    }
-    
-    std::string get(const std::string& key, int timestamp)
-    {
-        if (timeMap.find(key) != timeMap.end())
-        {
-            auto it = timeMap[key].upper_bound(timestamp);
-            if (it == timeMap[key].begin()) return "";
-            else return prev(it)->second;
-        }
-        else return "";
-    }
-    
+  TimeMap() {}
+
+  void set(const std::string &key, const std::string &value, int timestamp) {
+    timeMap[key][timestamp] = value;
+  }
+
+  std::string get(const std::string &key, int timestamp) {
+    if (timeMap.find(key) != timeMap.end()) {
+      auto it = timeMap[key].upper_bound(timestamp);
+      if (it == timeMap[key].begin())
+        return "";
+      else
+        return prev(it)->second;
+    } else
+      return "";
+  }
+
 private:
-    std::unordered_map<std::string, std::map<int, std::string>> timeMap;
+  std::unordered_map<std::string, std::map<int, std::string>> timeMap;
 };
 
 /**

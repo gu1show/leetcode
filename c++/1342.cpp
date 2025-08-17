@@ -2,18 +2,17 @@
 // Runtime: 3 ms
 // Memory: 5.9 MB
 
-class Solution 
-{
+class Solution {
 public:
-    int numberOfSteps(int num) 
-    {
-        int steps = 0;
-        while (num > 0)
-        {
-            if (num % 2 == 0) num = num >> 1;
-            else --num;
-            ++steps;
-        }
-        return steps;
+  int numberOfSteps(int num) {
+    int steps = 0;
+    while (num > 0) {
+      if (num % 2 == 0)
+        num = num >> 1;
+      else
+        --num;
+      ++steps;
     }
+    return steps;
+  }
 };

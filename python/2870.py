@@ -2,6 +2,7 @@
 # Runtime: 522 ms
 # Memory: 31.46 MB
 
+
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         values_and_frequency = Counter(nums)
@@ -13,5 +14,5 @@ class Solution:
                 min_number_of_operations += value // 3
             else:
                 min_number_of_operations += value // 3 + 1
-        
+
         return min_number_of_operations

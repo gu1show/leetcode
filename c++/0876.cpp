@@ -12,19 +12,16 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    ListNode* middleNode(ListNode* head) 
-    {
-        ListNode* root = head;
-        std::vector<ListNode*> nodes;
-        while (root != nullptr)
-        {
-            nodes.push_back(root);
-            root = root->next;
-        }
-
-        return nodes[nodes.size() / 2];
+  ListNode *middleNode(ListNode *head) {
+    ListNode *root = head;
+    std::vector<ListNode *> nodes;
+    while (root != nullptr) {
+      nodes.push_back(root);
+      root = root->next;
     }
+
+    return nodes[nodes.size() / 2];
+  }
 };

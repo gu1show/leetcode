@@ -1,5 +1,5 @@
 // Link: https://leetcode.com/problems/binary-tree-preorder-traversal/description/
-// Runtime: 0 ms 
+// Runtime: 0 ms
 // Memory: 10.6 MB
 
 /**
@@ -10,24 +10,22 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    std::vector<int> preorderTraversal(TreeNode* root) 
-    {
-        if (root != nullptr) 
-        {
-            nodeValues.push_back(root->val);
-            preorderTraversal(root->left);
-            preorderTraversal(root->right);
-        }
-
-        return nodeValues;
+  std::vector<int> preorderTraversal(TreeNode *root) {
+    if (root != nullptr) {
+      nodeValues.push_back(root->val);
+      preorderTraversal(root->left);
+      preorderTraversal(root->right);
     }
 
+    return nodeValues;
+  }
+
 private:
-    std::vector<int> nodeValues;
+  std::vector<int> nodeValues;
 };

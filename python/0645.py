@@ -2,6 +2,7 @@
 # Runtime: 166 ms
 # Memory: 18.56 MB
 
+
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         expected_sum = len(nums) * (len(nums) + 1) // 2
@@ -14,9 +15,9 @@ class Solution:
             if nums[i] in different_numbers:
                 duplicate = nums[i]
                 is_found = True
-            
+
             different_numbers.add(nums[i])
 
             i += 1
-        
+
         return [duplicate, expected_sum - (actual_sum - duplicate)]

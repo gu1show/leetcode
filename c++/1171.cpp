@@ -12,32 +12,28 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    ListNode* removeZeroSumSublists(ListNode* head) 
-    {
-        ListNode* dummyNode = new ListNode(0, head);
-        ListNode* currentNode = dummyNode;
-        int prefixSum = 0;
-        std::unordered_map<int, ListNode*> prefixSumAndNode;
-        prefixSumAndNode[0] = dummyNode;
-        while (currentNode != nullptr)
-        {
-            prefixSum += currentNode->val;
-            prefixSumAndNode[prefixSum] = currentNode;
-            currentNode = currentNode->next;
-        }
-
-        prefixSum = 0;
-        currentNode = dummyNode;
-        while (currentNode != nullptr)
-        {
-            prefixSum += currentNode->val;
-            currentNode->next = prefixSumAndNode[prefixSum]->next;
-            currentNode = currentNode->next;
-        }
-
-        return dummyNode->next;
+  ListNode *removeZeroSumSublists(ListNode *head) {
+    ListNode *dummyNode = new ListNode(0, head);
+    ListNode *currentNode = dummyNode;
+    int prefixSum = 0;
+    std::unordered_map<int, ListNode *> prefixSumAndNode;
+    prefixSumAndNode[0] = dummyNode;
+    while (currentNode != nullptr) {
+      prefixSum += currentNode->val;
+      prefixSumAndNode[prefixSum] = currentNode;
+      currentNode = currentNode->next;
     }
+
+    prefixSum = 0;
+    currentNode = dummyNode;
+    while (currentNode != nullptr) {
+      prefixSum += currentNode->val;
+      currentNode->next = prefixSumAndNode[prefixSum]->next;
+      currentNode = currentNode->next;
+    }
+
+    return dummyNode->next;
+  }
 };

@@ -14,7 +14,11 @@ class Solution:
             current_sum = 0
             if low <= root.val <= high:
                 current_sum += root.val
-            
-            return current_sum + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+
+            return (
+                current_sum
+                + self.rangeSumBST(root.left, low, high)
+                + self.rangeSumBST(root.right, low, high)
+            )
         else:
             return 0

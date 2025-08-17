@@ -16,10 +16,10 @@ class Solution:
             if outdegree[i] == 0:
                 is_safe_node[i] = True
                 nodes_for_deleting.put(i)
-            
+
             for node_index in connected_nodes:
                 connection_with_nodes[node_index].append(i)
-        
+
         while not nodes_for_deleting.empty():
             node_index = nodes_for_deleting.get()
 
@@ -28,10 +28,10 @@ class Solution:
                 if outdegree[node] == 0:
                     nodes_for_deleting.put(node)
                     is_safe_node[node] = True
-        
+
         safe_nodes = []
         for i, can_add in enumerate(is_safe_node):
             if can_add:
                 safe_nodes.append(i)
-        
+
         return safe_nodes

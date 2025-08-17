@@ -7,49 +7,43 @@
  * // You should not implement it, or speculate about its implementation
  * class NestedInteger {
  *   public:
- *     // Return true if this NestedInteger holds a single integer, rather than a nested list.
- *     bool isInteger() const;
+ *     // Return true if this NestedInteger holds a single integer, rather than
+ * a nested list. bool isInteger() const;
  *
- *     // Return the single integer that this NestedInteger holds, if it holds a single integer
+ *     // Return the single integer that this NestedInteger holds, if it holds a
+ * single integer
  *     // The result is undefined if this NestedInteger holds a nested list
  *     int getInteger() const;
  *
- *     // Return the nested list that this NestedInteger holds, if it holds a nested list
+ *     // Return the nested list that this NestedInteger holds, if it holds a
+ * nested list
  *     // The result is undefined if this NestedInteger holds a single integer
  *     const vector<NestedInteger> &getList() const;
  * };
  */
 
-class NestedIterator 
-{
+class NestedIterator {
 public:
-    NestedIterator(const std::vector<NestedInteger>& nestedList) 
-    {
-        flattenList(nestedList);
+  NestedIterator(const std::vector<NestedInteger> &nestedList) {
+    flattenList(nestedList);
+  }
+
+  void flattenList(const std::vector<NestedInteger> &nestedList) {
+    for (auto value : nestedList) {
+      if (value.isInteger())
+        elements.push_back(value.getInteger());
+      else
+        flattenList(value.getList());
     }
-    
-    void flattenList(const std::vector<NestedInteger>& nestedList)
-    {
-        for (auto value : nestedList)
-        {
-            if (value.isInteger()) elements.push_back(value.getInteger());
-            else flattenList(value.getList());
-        }
-    }
-    
-    int next() 
-    {
-        return elements[position++];
-    }
-    
-    bool hasNext() 
-    {
-        return elements.size() > position;
-    }
-    
+  }
+
+  int next() { return elements[position++]; }
+
+  bool hasNext() { return elements.size() > position; }
+
 private:
-    std::vector<int> elements;
-    int position = 0;
+  std::vector<int> elements;
+  int position = 0;
 };
 
 /**

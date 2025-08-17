@@ -12,42 +12,37 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    std::vector<ListNode*> splitListToParts(ListNode* head, int k) 
-    {
-        ListNode* headToCountLength = head;
-        int lengthOfList = 0;
-        while (headToCountLength != nullptr)
-        {
-            lengthOfList++;
-            headToCountLength = headToCountLength->next;
-        }
-
-        std::vector<ListNode*> partitionedList(k);
-        ListNode* iterator = head;
-        int lengthOfPartition = lengthOfList / k, remainder = lengthOfList % k;
-        for (int i = 0; i < k; i++)
-        {
-            ListNode* currentHead = iterator;
-            int j = 0;
-            while ((j < lengthOfPartition + (i < remainder) - 1) && (iterator != nullptr))
-            {
-                iterator = iterator->next;                
-                j++;
-            }
-
-            if (iterator != nullptr)
-            {
-                ListNode* previous = iterator;
-                iterator = iterator->next;
-                previous->next = nullptr;
-            }
-
-            partitionedList[i] = currentHead;
-        }
-
-        return partitionedList;
+  std::vector<ListNode *> splitListToParts(ListNode *head, int k) {
+    ListNode *headToCountLength = head;
+    int lengthOfList = 0;
+    while (headToCountLength != nullptr) {
+      lengthOfList++;
+      headToCountLength = headToCountLength->next;
     }
+
+    std::vector<ListNode *> partitionedList(k);
+    ListNode *iterator = head;
+    int lengthOfPartition = lengthOfList / k, remainder = lengthOfList % k;
+    for (int i = 0; i < k; i++) {
+      ListNode *currentHead = iterator;
+      int j = 0;
+      while ((j < lengthOfPartition + (i < remainder) - 1) &&
+             (iterator != nullptr)) {
+        iterator = iterator->next;
+        j++;
+      }
+
+      if (iterator != nullptr) {
+        ListNode *previous = iterator;
+        iterator = iterator->next;
+        previous->next = nullptr;
+      }
+
+      partitionedList[i] = currentHead;
+    }
+
+    return partitionedList;
+  }
 };

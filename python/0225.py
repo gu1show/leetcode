@@ -4,8 +4,8 @@
 
 import queue
 
-class MyStack:
 
+class MyStack:
     def __init__(self):
         self.stack_imitation = queue.Queue()
         self.peek = 0

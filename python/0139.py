@@ -2,6 +2,7 @@
 # Runtime: 51 ms
 # Memory: 16.45 MB
 
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         ending = [False] * (len(s) + 1)
@@ -13,5 +14,5 @@ class Solution:
                 if (ending[j]) and (s[j:i] in wordDict):
                     ending[i], is_found = True, True
                 j += 1
-        
+
         return ending[-1]

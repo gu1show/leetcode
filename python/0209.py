@@ -2,6 +2,7 @@
 # Runtime: 258 ms
 # Memory: 29.1 MB
 
+
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
         sum, left, minimum_size = 0, 0, len(nums)
@@ -14,7 +15,7 @@ class Solution:
                 sum -= nums[left]
                 left += 1
                 has_correct_sum = True
-        
+
         if has_correct_sum:
             return minimum_size
         else:

@@ -2,6 +2,7 @@
 # Runtime: 2907 ms
 # Memory: 16.3 MB
 
+
 class Solution:
     def largestVariance(self, s: str) -> int:
         counter = Counter(s)
@@ -15,12 +16,13 @@ class Solution:
                     elif minor == symbol:
                         minor_count += 1
                         rest_minor -= 1
-                        
+
                     if minor_count > 0:
-                        largest_variance = max(largest_variance, major_count - minor_count)
-                        
+                        largest_variance = max(
+                            largest_variance, major_count - minor_count
+                        )
+
                     if (major_count < minor_count) and (rest_minor > 0):
                         major_count, minor_count = 0, 0
-        
+
         return largest_variance
-                

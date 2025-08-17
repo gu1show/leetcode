@@ -12,31 +12,28 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) 
-    {
-        int nodePositionToDelete = 0;
-        ListNode* dummyHead = new ListNode(0, head);
-        removeNthNode(dummyHead, n, 1, nodePositionToDelete);
+  ListNode *removeNthFromEnd(ListNode *head, int n) {
+    int nodePositionToDelete = 0;
+    ListNode *dummyHead = new ListNode(0, head);
+    removeNthNode(dummyHead, n, 1, nodePositionToDelete);
 
-        return dummyHead->next;
-    }
+    return dummyHead->next;
+  }
 
 private:
-    void removeNthNode(ListNode* head, int n, int currentNode, int& nodePositionToDelete)
-    {
-        if (head != nullptr)
-            removeNthNode(head->next, n, currentNode + 1, nodePositionToDelete);
-        else
-            nodePositionToDelete = currentNode - 1 - n;
-        
-        if (currentNode == nodePositionToDelete)
-        {
-            ListNode* nodeToDelete = head->next;
-            head->next = nodeToDelete->next;
-            delete nodeToDelete;
-        }
+  void removeNthNode(ListNode *head, int n, int currentNode,
+                     int &nodePositionToDelete) {
+    if (head != nullptr)
+      removeNthNode(head->next, n, currentNode + 1, nodePositionToDelete);
+    else
+      nodePositionToDelete = currentNode - 1 - n;
+
+    if (currentNode == nodePositionToDelete) {
+      ListNode *nodeToDelete = head->next;
+      head->next = nodeToDelete->next;
+      delete nodeToDelete;
     }
+  }
 };

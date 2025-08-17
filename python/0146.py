@@ -2,6 +2,7 @@
 # Runtime: 683 ms
 # Memory: 77.48 MB
 
+
 class LRUCache:
     capacity: int
     cache_map: OrderedDict
@@ -24,7 +25,7 @@ class LRUCache:
             self.cache_map[key] = value
             self.cache_map.move_to_end(key)
             return
-        
+
         if len(self.cache_map) >= self.capacity:
             least_recently_used_item = next(iter(self.cache_map))
             del self.cache_map[least_recently_used_item]

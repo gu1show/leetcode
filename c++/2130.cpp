@@ -12,25 +12,22 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    int pairSum(ListNode* head) 
-    {
-        std::vector<int> list;
-        while (head != nullptr)
-        {
-            list.push_back(head->val);
-            head = head->next;
-        }
-
-        int maxTwinSum = 0;
-        for (int i = 0; i < static_cast<int>(list.size() / 2); i++)
-        {
-            int twinSum = list[i] + list[list.size() - 1 - i];
-            if (maxTwinSum < twinSum) maxTwinSum = twinSum;
-        }
-        
-        return maxTwinSum;
+  int pairSum(ListNode *head) {
+    std::vector<int> list;
+    while (head != nullptr) {
+      list.push_back(head->val);
+      head = head->next;
     }
+
+    int maxTwinSum = 0;
+    for (int i = 0; i < static_cast<int>(list.size() / 2); i++) {
+      int twinSum = list[i] + list[list.size() - 1 - i];
+      if (maxTwinSum < twinSum)
+        maxTwinSum = twinSum;
+    }
+
+    return maxTwinSum;
+  }
 };

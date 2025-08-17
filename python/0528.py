@@ -14,9 +14,9 @@ class Solution:
             leftNode = leftNode.next
 
         rightNode, border = head, leftNode.next
-        while (border != None):
+        while border is not None:
             rightNode, border = rightNode.next, border.next
-        
+
         leftNode.val, rightNode.val = rightNode.val, leftNode.val
 
         return head

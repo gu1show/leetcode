@@ -1,14 +1,13 @@
 // Link: https://leetcode.com/problems/repeated-substring-pattern/description/
-// Runtime: 16 ms
-// Memory: 12.69 MB
+// Runtime: 6 ms
+// Memory: 14.21 MB
 
-class Solution 
-{
+class Solution {
 public:
-    bool repeatedSubstringPattern(const std::string& s) 
-    {
-        std::string doubleString = s + s;
-        if (doubleString.substr(1, static_cast<int>(doubleString.size()) - 2).find(s) != -1) return true;
-        else return false;
-    }
+  bool repeatedSubstringPattern(const std::string &s) {
+    std::string doubleString = s + s;
+
+    return doubleString.substr(1, static_cast<int>(doubleString.size()) - 2)
+               .find(s) != -1;
+  }
 };

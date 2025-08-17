@@ -2,6 +2,7 @@
 # Runtime: 38 ms
 # Memory: 16.56 MB
 
+
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         total_time = 0
@@ -10,5 +11,5 @@ class Solution:
                 total_time += min(ticket, tickets[k])
             else:
                 total_time += min(ticket, tickets[k] - 1)
-        
+
         return total_time

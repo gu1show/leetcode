@@ -2,49 +2,37 @@
 // Runtime: 0 ms
 // Memory: 6.8 MB
 
-class MyStack
-{
+class MyStack {
 public:
-    MyStack() 
-    {
-        
+  MyStack() {}
+
+  void push(int x) {
+    peek = x;
+    container.push(x);
+  }
+
+  int pop() {
+    int size = container.size() - 1;
+    while (size > 0) {
+      peek = container.front();
+      container.push(peek);
+      container.pop();
+
+      size--;
     }
-    
-    void push(int x) 
-    {
-        peek = x;
-        container.push(x);
-    }
-    
-    int pop() 
-    {
-        int size = container.size() - 1;
-        while (size > 0)
-        {
-            peek = container.front();
-            container.push(peek);
-            container.pop();
-            
-            size--;    
-        }
-        int topElement = container.front();
-        container.pop();
-        
-        return topElement;
-    }
-    
-    int top() 
-    {
-        return peek;
-    }
-    
-    bool empty() 
-    {
-        return container.empty();
-    }
+    int topElement = container.front();
+    container.pop();
+
+    return topElement;
+  }
+
+  int top() { return peek; }
+
+  bool empty() { return container.empty(); }
+
 private:
-    std::queue<int> container;
-    int peek = 0;
+  std::queue<int> container;
+  int peek = 0;
 };
 
 /**

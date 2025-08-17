@@ -22,33 +22,28 @@ public:
 };
 */
 
-class Solution 
-{
+class Solution {
 public:
-    std::vector<std::vector<int>> levelOrder(Node* root) 
-    {
-        if (root != nullptr)
-        {
-            std::vector<std::vector<int>> result;
-            std::queue<Node*> nodes;
-            nodes.push(root);
-            while (!nodes.empty())
-            {
-                result.push_back({});
-                auto size = nodes.size();
-                while (size > 0)
-                {
-                    Node* tempNode = nodes.front();
-                    nodes.pop();
-                    result.back().push_back(tempNode->val);
-                    for (Node* child : tempNode->children)
-                        nodes.push(child);
-                    size--;    
-                }
-            }
-        
-            return result;
+  std::vector<std::vector<int>> levelOrder(Node *root) {
+    if (root != nullptr) {
+      std::vector<std::vector<int>> result;
+      std::queue<Node *> nodes;
+      nodes.push(root);
+      while (!nodes.empty()) {
+        result.push_back({});
+        auto size = nodes.size();
+        while (size > 0) {
+          Node *tempNode = nodes.front();
+          nodes.pop();
+          result.back().push_back(tempNode->val);
+          for (Node *child : tempNode->children)
+            nodes.push(child);
+          size--;
         }
-        else return {};
-    }
+      }
+
+      return result;
+    } else
+      return {};
+  }
 };

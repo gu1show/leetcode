@@ -11,16 +11,18 @@
 class Solution:
     def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
         return self.__generate_all_trees(1, n)
-    
+
     @cache
     def __generate_all_trees(self, left: int, right: int) -> List[Optional[TreeNode]]:
-        if left > right: return [None]
-        elif left == right: return [TreeNode(left)]
+        if left > right:
+            return [None]
+        elif left == right:
+            return [TreeNode(left)]
 
         all_trees = []
         for val in range(left, right + 1):
             for left_tree in self.__generate_all_trees(left, val - 1):
                 for right_tree in self.__generate_all_trees(val + 1, right):
                     all_trees.append(TreeNode(val, left_tree, right_tree))
-        
+
         return all_trees

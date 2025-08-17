@@ -12,35 +12,31 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    ListNode* deleteMiddle(ListNode* head)
-    {
-        int length = getLength(head);
-        if (length > 1)
-        {
-            removeNode(head, length / 2);
-            return head;
-        }
-        else return nullptr;
-    }
-    
+  ListNode *deleteMiddle(ListNode *head) {
+    int length = getLength(head);
+    if (length > 1) {
+      removeNode(head, length / 2);
+      return head;
+    } else
+      return nullptr;
+  }
+
 private:
-    int getLength(ListNode* node)
-    {
-        if (node == nullptr) return 0;
-        else return 1 + getLength(node->next);
-    }
-    
-    void removeNode(ListNode* node, int depth)
-    {
-        if (depth == 1) 
-        {
-            ListNode* temp = node->next;
-            node->next = node->next->next;
-            delete temp;
-        }
-        else removeNode(node->next, depth - 1);
-    }
+  int getLength(ListNode *node) {
+    if (node == nullptr)
+      return 0;
+    else
+      return 1 + getLength(node->next);
+  }
+
+  void removeNode(ListNode *node, int depth) {
+    if (depth == 1) {
+      ListNode *temp = node->next;
+      node->next = node->next->next;
+      delete temp;
+    } else
+      removeNode(node->next, depth - 1);
+  }
 };

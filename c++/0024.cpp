@@ -12,27 +12,25 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) 
-    {
-        if ((head == nullptr) || (head->next == nullptr)) return head;
+  ListNode *swapPairs(ListNode *head) {
+    if ((head == nullptr) || (head->next == nullptr))
+      return head;
 
-        ListNode* nodeBeforeList = new ListNode();
-        ListNode* previousNode = nodeBeforeList;
-        ListNode* currentNode = head;
+    ListNode *nodeBeforeList = new ListNode();
+    ListNode *previousNode = nodeBeforeList;
+    ListNode *currentNode = head;
 
-        while ((currentNode != nullptr) && (currentNode->next != nullptr))
-        {
-            previousNode->next = currentNode->next;
-            currentNode->next = currentNode->next->next;
-            previousNode->next->next = currentNode;
+    while ((currentNode != nullptr) && (currentNode->next != nullptr)) {
+      previousNode->next = currentNode->next;
+      currentNode->next = currentNode->next->next;
+      previousNode->next->next = currentNode;
 
-            previousNode = currentNode;
-            currentNode = currentNode->next;
-        }
-
-        return nodeBeforeList->next;
+      previousNode = currentNode;
+      currentNode = currentNode->next;
     }
+
+    return nodeBeforeList->next;
+  }
 };

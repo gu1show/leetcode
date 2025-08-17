@@ -2,6 +2,7 @@
 # Runtime: 106 ms
 # Memory: 16.77 MB
 
+
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         max_k = -1

@@ -15,27 +15,25 @@
  */
 class Solution {
 public:
-    ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* iteratorNode = head;
-        std::stack<ListNode*> nodes;
-        while (iteratorNode != nullptr) 
-        {
-            nodes.push(iteratorNode);
-            iteratorNode = iteratorNode->next;
-        }
-
-        ListNode* leftNode = head;
-        for (int i = 1; i < k; i++)
-        {
-            leftNode = leftNode->next;
-            nodes.pop();
-        }
-        ListNode* rightNode = nodes.top();
-
-        std::swap(leftNode->val, rightNode->val);
-
-        return head;
+  ListNode *swapNodes(ListNode *head, int k) {
+    ListNode *iteratorNode = head;
+    std::stack<ListNode *> nodes;
+    while (iteratorNode != nullptr) {
+      nodes.push(iteratorNode);
+      iteratorNode = iteratorNode->next;
     }
+
+    ListNode *leftNode = head;
+    for (int i = 1; i < k; i++) {
+      leftNode = leftNode->next;
+      nodes.pop();
+    }
+    ListNode *rightNode = nodes.top();
+
+    std::swap(leftNode->val, rightNode->val);
+
+    return head;
+  }
 };
 
 // The second solution
@@ -54,19 +52,19 @@ public:
  */
 class Solution {
 public:
-    ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* leftNode = head;
-        for (int i = 1; i < k; i++) leftNode = leftNode->next;
+  ListNode *swapNodes(ListNode *head, int k) {
+    ListNode *leftNode = head;
+    for (int i = 1; i < k; i++)
+      leftNode = leftNode->next;
 
-        ListNode* border = leftNode->next, * rightNode = head;
-        while (border != nullptr)
-        {
-            rightNode = rightNode->next;
-            border = border->next;
-        }
-
-        std::swap(leftNode->val, rightNode->val);
-
-        return head;
+    ListNode *border = leftNode->next, *rightNode = head;
+    while (border != nullptr) {
+      rightNode = rightNode->next;
+      border = border->next;
     }
+
+    std::swap(leftNode->val, rightNode->val);
+
+    return head;
+  }
 };

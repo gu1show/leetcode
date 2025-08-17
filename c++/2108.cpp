@@ -2,27 +2,23 @@
 // Runtime: 42 ms
 // Memory: 23.24 MB
 
-class Solution 
-{
+class Solution {
 public:
-    std::string firstPalindrome(const std::vector<std::string>& words) 
-    {
-        for (const auto& word : words)
-        {
-            int i = 0;
-            bool isPalindrome = true;
-            while ((i < static_cast<int>(word.size() / 2)) && (isPalindrome))
-            {
-                if (word[i] != word[word.size() - 1 - i])
-                    isPalindrome = false;
+  std::string firstPalindrome(const std::vector<std::string> &words) {
+    for (const auto &word : words) {
+      int i = 0;
+      bool isPalindrome = true;
+      while ((i < static_cast<int>(word.size() / 2)) && (isPalindrome)) {
+        if (word[i] != word[word.size() - 1 - i])
+          isPalindrome = false;
 
-                i++;
-            }
+        i++;
+      }
 
-            if (isPalindrome)
-                return word;
-        }
-
-        return "";
+      if (isPalindrome)
+        return word;
     }
+
+    return "";
+  }
 };

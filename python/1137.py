@@ -2,6 +2,7 @@
 # Runtime: 31 ms
 # Memory: 16.55 MB
 
+
 class Solution:
     @cache
     def tribonacci(self, n: int) -> int:
@@ -10,4 +11,6 @@ class Solution:
         elif 1 <= n <= 2:
             return 1
         else:
-            return self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci(n - 3)
+            return (
+                self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci(n - 3)
+            )

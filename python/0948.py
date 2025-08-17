@@ -2,6 +2,7 @@
 # Runtime: 41 ms
 # Memory: 16.77 MB
 
+
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
         current_power, sorted_tokens = power, tokens[:]
@@ -19,5 +20,5 @@ class Solution:
                 score -= 1
             else:
                 can_step = False
-        
+
         return score

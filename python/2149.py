@@ -2,6 +2,7 @@
 # Runtime: 1010 ms
 # Memory: 47.19 MB
 
+
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         rearranged_array = [0] * len(nums)
@@ -13,5 +14,5 @@ class Solution:
             else:
                 rearranged_array[negative_index] = val
                 negative_index += 2
-        
+
         return rearranged_array

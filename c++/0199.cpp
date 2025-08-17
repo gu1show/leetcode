@@ -10,30 +10,27 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    std::vector<int> rightSideView(TreeNode* root)
-    {
-        addNodes(root, 0);   
-        return nodeValues;
-    }
+  std::vector<int> rightSideView(TreeNode *root) {
+    addNodes(root, 0);
+    return nodeValues;
+  }
 
 private:
-    std::vector<int> nodeValues;
-    
-    void addNodes(TreeNode* root, int depth)
-    {
-        if (root != nullptr)
-        {
-            if (nodeValues.size() == depth)
-                nodeValues.push_back(root->val);
-            
-            addNodes(root->right, depth + 1);
-            addNodes(root->left, depth + 1);
-        }  
+  std::vector<int> nodeValues;
+
+  void addNodes(TreeNode *root, int depth) {
+    if (root != nullptr) {
+      if (nodeValues.size() == depth)
+        nodeValues.push_back(root->val);
+
+      addNodes(root->right, depth + 1);
+      addNodes(root->left, depth + 1);
     }
+  }
 };

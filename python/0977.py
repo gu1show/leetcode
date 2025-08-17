@@ -2,6 +2,7 @@
 # Runtime: 145 ms
 # Memory: 18.89 MB
 
+
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
         sorted_squares_array = nums[:]
@@ -13,5 +14,5 @@ class Solution:
             else:
                 sorted_squares_array[i] = nums[left] * nums[left]
                 left += 1
-        
+
         return sorted_squares_array

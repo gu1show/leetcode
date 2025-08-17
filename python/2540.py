@@ -2,6 +2,7 @@
 # Runtime: 351 ms
 # Memory: 35.59 MB
 
+
 class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
         i, j = 0, 0
@@ -12,5 +13,5 @@ class Solution:
                 i += 1
             else:
                 j += 1
-        
+
         return -1

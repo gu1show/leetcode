@@ -10,25 +10,27 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
-class Solution 
-{
+class Solution {
 public:
-    int maxDepth(TreeNode* root) 
-    {
-        if (root == nullptr) return 0;
-        else return getMaxDepth(root, 1);
-    }
+  int maxDepth(TreeNode *root) {
+    if (root == nullptr)
+      return 0;
+    else
+      return getMaxDepth(root, 1);
+  }
 
 private:
-    int getMaxDepth(TreeNode* root, int depth) 
-    {
-        int maxDepth = depth;
-        if (root->left != nullptr) maxDepth = std::max(maxDepth, getMaxDepth(root->left, depth + 1));
-        if (root->right != nullptr) maxDepth = std::max(maxDepth, getMaxDepth(root->right, depth + 1));
+  int getMaxDepth(TreeNode *root, int depth) {
+    int maxDepth = depth;
+    if (root->left != nullptr)
+      maxDepth = std::max(maxDepth, getMaxDepth(root->left, depth + 1));
+    if (root->right != nullptr)
+      maxDepth = std::max(maxDepth, getMaxDepth(root->right, depth + 1));
 
-        return maxDepth;
-    }
+    return maxDepth;
+  }
 };

@@ -2,6 +2,7 @@
 # Runtime: 34 ms
 # Memory: 16.34 MB
 
+
 class Solution:
     def pivotInteger(self, n: int) -> int:
         sum_from_1_to_n = n * (n + 1) // 2
