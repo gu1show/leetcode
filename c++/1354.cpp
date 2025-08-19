@@ -1,5 +1,4 @@
-// Link:
-// https://leetcode.com/problems/construct-target-array-with-multiple-sums/
+// Link: https://leetcode.com/problems/construct-target-array-with-multiple-sums/
 // Runtime: 81 ms
 // Memory: 30 MB
 
